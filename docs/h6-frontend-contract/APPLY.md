@@ -1,14 +1,23 @@
 # H6 — Frontend type/API contract (apply to vetonco-frontend)
 
 **Target repo:** https://github.com/fjkiani/vetonco-frontend  
-**Branch:** `cursor/h6-fe-contract-80c5`  
+**Branch:** `cursor/h6-fe-contract-80c5` (pushed: `78d9e53`)  
+**Open FE PR:** https://github.com/fjkiani/vetonco-frontend/compare/main...cursor/h6-fe-contract-80c5?expand=1  
 **Depends on:** backend H1 + H5 (`recommendations` / `score`, PharmacistDrugEntry JSON) — [backend PR #1](https://github.com/fjkiani/vetonco-backend/pull/1), [PR #2](https://github.com/fjkiani/vetonco-backend/pull/2)
+
+## Status (2026-11-28)
+
+- Branch **pushed** to `fjkiani/vetonco-frontend` (`cursor/h6-fe-contract-80c5`).
+- Gates verified: `npm run check` → typecheck exit 0 + **10** vitest contract tests passed.
+- Mutate proof: `fit_score`-only → `fails getDrugScore on fit_score-only rows` FAIL; restored → 10 passed.
+- **Blocker:** `cursor[bot]` cannot create PRs (`Resource not accessible by integration` — missing Pull requests write). `ManagePullRequest` was unavailable in the agent run. Open the PR from the compare link above (base `main`).
 
 ## Why this mirror exists
 
-The implementing agent finished the work locally on `vetonco-frontend` (`78d9e53`) but **could not push** (`cursor[bot]` 403 — no Contents write on that repo). Apply the patch once Cursor has write access, or manually.
+Earlier runs could not push Contents; that is fixed. This mirror keeps the patch + sources if the FE branch is ever lost, and documents gates/deps.
 
 ```bash
+# Re-apply only if the FE branch is missing:
 cd vetonco-frontend
 git checkout master
 git checkout -b cursor/h6-fe-contract-80c5
