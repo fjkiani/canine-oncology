@@ -198,7 +198,7 @@ Acceptance criteria are written so **re-quarantining cannot pass**.
 | **H2** | PK dossiers without deletion | Science | `tcc_gene_panels.py`, `feasibility_gate.py`, new `docs/pk/*.md` | Each drug has structured PK fields or explicit `pk_missing`; gate returns INCOMPLETE_PK not silent drop; scored list still length 7. |
 | **H3** | ORR SOT + FE sync | Science + FE | New ground-truth file; `HowItWorks.tsx`; `rag_service.py` | HowItWorks toceranib ORR row matches Bernabe 26% **or** dual-cites Gustafson with design note — **cannot** be sole 6.7% while BE uses 0.26; sensitivity BRAF+ toceranib = **0.380**. |
 | **H4** | Expr intake + target remap | Eng + bio | `PetAnalyze.tsx`/`PetNew`; `tcc_gene_panels.py` | Uploading `{BRAF: 3.0}` (or remapped KDR) changes `target_delta` in API rationale vs `expr:{}`. |
-| **H5** | recipe_node + JSON | Eng | `tcc_pipeline_agent.py`, `canine.py` | Sync pipeline `complete=True`; recipe JSON has string drug names; no TypeError in trace. |
+| **H5** | recipe_node + JSON | Eng | `tcc_pipeline_agent.py`, `canine.py` | Sync pipeline `complete=True`; recipe JSON has string drug names; no TypeError in trace. **Next extractable task:** [`AGENT_TASK_H5_RECIPE_NODE.md`](AGENT_TASK_H5_RECIPE_NODE.md) (after H1). |
 | **H6** | FE type contract | Eng | `types/*`, `DrugRankingCard`, `DosageCard`, `PetAnalyze` | `npx tsc -p tsconfig.app.json --noEmit` exit 0; UI shows backend `recommendations`. |
 | **H7** | Durable clinical store | Eng | BE store + FE `store.ts` | After process restart, tests/chat for pet_id remain; auth scope enforced. |
 | **H8** | RAG expansion + PMID integrity | Science | `rag_service.py`, literature route | Corpus size >8; **unique PMIDs** (Ogilvie ≠ 8188077); retrieval eval test file exists. |
